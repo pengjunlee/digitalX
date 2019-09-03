@@ -84,6 +84,7 @@ export default {
   padding-left: 80px;
   font-size: 26px;
   font-weight: 600;
+  box-sizing: border-box;
 }
 
 .login {
