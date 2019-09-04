@@ -1,0 +1,62 @@
+{
+    "admin": {
+        "data": {
+            "user": {
+                "name": "pengjunlee",
+                "menus": [
+                    {
+                        "path": "/home",
+                        "title": "首页",
+                        "icon": "el-icon-s-home"
+                    },
+                    {
+                        "path": "/statistic",
+                        "title": "数据统计",
+                        "icon": "el-icon-s-tools",
+                        "children": [
+                            {
+                                "path": "/statistic/keywords",
+                                "title": "词频统计"
+                            },
+                            {
+                                "path": "/statistic/comments",
+                                "title": "评论详情"
+                            },
+                            {
+                                "path": "/statistic/goods",
+                                "title": "商品列表"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "code": 0,
+        "msg": "登录成功"
+    },
+    "user": {
+        "data": {
+            "user": {
+                "name": "user9527",
+                "menus": [
+                    {
+                        "path": "/home",
+                        "title": "首页",
+                        "icon": "el-icon-s-home"
+                    }
+                ]
+            }
+        },
+        "code": 0,
+        "msg": "登录成功"
+    },
+    "other": {
+        "data": {
+            "user": {
+                "name": "游客"
+            }
+        },
+        "code": -1,
+        "msg": "登录失败"
+    }
+}
