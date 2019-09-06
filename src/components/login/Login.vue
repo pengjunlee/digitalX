@@ -38,16 +38,15 @@ export default {
       } else {
         // 发送登录请求，返回json格式响应数据
         this.jsonAxios
-          .post("/api/login", { name: name, password: password })
+          .post("/api/v1/login", { name: name, password: password })
           .then(res => {
-            var retData = res.data;
-            if (retData.code === 0) {
+            if (res.code === 0) {
               // 将用户数据保存到vuex
-              console.log(retData.data);
-              this.$store.dispatch("updateUserAction", retData.data.user);
+              console.log(res.data);
+              this.$store.dispatch("updateUserAction", res.data.user);
               this.$router.push("/home");
             } else {
-              $error.text(retData.msg);
+              $error.text(res.msg);
             }
           })
           .catch(error => {

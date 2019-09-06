@@ -26,8 +26,10 @@ var jsonParser = bodyParser.json();
 // var urlencodedParser = bodyParser.urlencoded({extended: false});
 
 // 读取/mock/login.json中的json数据
-var loginData = require("../src/mock/login.json")
-var statisticData = require("../src/mock/statistic.json")
+var loginData = require("../src/mock/login.json");
+var goodsData = require("../src/mock/goods.json");
+var commentData = require("../src/mock/comment.json")
+var keywordData = require("../src/mock/keyword.json")
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
@@ -63,7 +65,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       poll: config.dev.poll,
     },
     before(app) { // localhost:8080/mock/api/login
-      app.post("/mock/api/login", jsonParser, (req, res) => {
+      app.post("/mock/api/v1/login", jsonParser, (req, res) => {
         if (!req.body) return res.sendStatus(400);
         switch (req.body.name) {
           case "admin":
@@ -78,45 +80,45 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         }
 
       });
-      app.post("/mock/api/statistic", jsonParser, (req, res) => {
-        if (!req.body) return res.sendStatus(400);
-        switch (req.body.name) {
-          case "comments":
-            res.send(statisticData['comments']);
-            break;
-          case "keywords":
-            res.send(statisticData['keywords']);
-            break;
-          default:
-            res.send(statisticData['goods']);
-            break;
-        }
+
+      app.get("/mock/api/v1/comment/goods/list", (req, res) => {
+        res.send(goodsData);
+
       });
+      app.get("/mock/api/v1/comment/list", (req, res) => {
+        res.send(commentData);
+
+      });
+      app.get("/mock/api/v1/comment/keyword", (req, res) => {
+        res.send(keywordData);
+
+      });
+      
     }
 
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': require('../config/dev.env')
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
-    new webpack.NoEmitOnErrorsPlugin(),
-    // https://github.com/ampedandwired/html-webpack-plugin
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'index.html',
-      inject: true
-    }),
-    // copy custom static assets
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, '../static'),
-        to: config.dev.assetsSubDirectory,
-        ignore: ['.*']
-      }
-    ])
-  ]
+plugins: [
+  new webpack.DefinePlugin({
+    'process.env': require('../config/dev.env')
+  }),
+  new webpack.HotModuleReplacementPlugin(),
+  new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
+  new webpack.NoEmitOnErrorsPlugin(),
+  // https://github.com/ampedandwired/html-webpack-plugin
+  new HtmlWebpackPlugin({
+    filename: 'index.html',
+    template: 'index.html',
+    inject: true
+  }),
+  // copy custom static assets
+  new CopyWebpackPlugin([
+    {
+      from: path.resolve(__dirname, '../static'),
+      to: config.dev.assetsSubDirectory,
+      ignore: ['.*']
+    }
+  ])
+]
 })
 
 module.exports = new Promise((resolve, reject) => {

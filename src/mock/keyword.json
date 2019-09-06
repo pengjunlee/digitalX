@@ -1,0 +1,404 @@
+{
+    "data": {
+        "keywords": [
+            {
+                "name": "活动",
+                "weight": 257
+            },
+            {
+                "name": "没有",
+                "weight": 213
+            },
+            {
+                "name": "时代",
+                "weight": 172
+            },
+            {
+                "name": "洗脸",
+                "weight": 169
+            },
+            {
+                "name": "全棉",
+                "weight": 168
+            },
+            {
+                "name": "划算",
+                "weight": 158
+            },
+            {
+                "name": "质量",
+                "weight": 110
+            },
+            {
+                "name": "评论",
+                "weight": 99
+            },
+            {
+                "name": "用户",
+                "weight": 96
+            },
+            {
+                "name": "填写",
+                "weight": 94
+            },
+            {
+                "name": "感觉",
+                "weight": 83
+            },
+            {
+                "name": "回购",
+                "weight": 81
+            },
+            {
+                "name": "有点",
+                "weight": 81
+            },
+            {
+                "name": "喜欢",
+                "weight": 80
+            },
+            {
+                "name": "时候",
+                "weight": 71
+            },
+            {
+                "name": "东西",
+                "weight": 69
+            },
+            {
+                "name": "价格",
+                "weight": 66
+            },
+            {
+                "name": "包装",
+                "weight": 61
+            },
+            {
+                "name": "囤货",
+                "weight": 61
+            },
+            {
+                "name": "推荐",
+                "weight": 59
+            },
+            {
+                "name": "好用",
+                "weight": 55
+            },
+            {
+                "name": "购买",
+                "weight": 49
+            },
+            {
+                "name": "收到",
+                "weight": 47
+            },
+            {
+                "name": "不会",
+                "weight": 46
+            },
+            {
+                "name": "物流",
+                "weight": 45
+            },
+            {
+                "name": "发货",
+                "weight": 42
+            },
+            {
+                "name": "棉柔巾",
+                "weight": 42
+            },
+            {
+                "name": "觉得",
+                "weight": 42
+            },
+            {
+                "name": "希望",
+                "weight": 41
+            },
+            {
+                "name": "没用",
+                "weight": 40
+            },
+            {
+                "name": "好评",
+                "weight": 39
+            },
+            {
+                "name": "实惠",
+                "weight": 39
+            },
+            {
+                "name": "起来",
+                "weight": 39
+            },
+            {
+                "name": "知道",
+                "weight": 37
+            },
+            {
+                "name": "快递",
+                "weight": 36
+            },
+            {
+                "name": "满意",
+                "weight": 36
+            },
+            {
+                "name": "用来",
+                "weight": 35
+            },
+            {
+                "name": "纸巾",
+                "weight": 35
+            },
+            {
+                "name": "优惠",
+                "weight": 34
+            },
+            {
+                "name": "牌子",
+                "weight": 34
+            },
+            {
+                "name": "朋友",
+                "weight": 33
+            },
+            {
+                "name": "使用",
+                "weight": 32
+            },
+            {
+                "name": "客服",
+                "weight": 31
+            },
+            {
+                "name": "代言人",
+                "weight": 30
+            },
+            {
+                "name": "纯棉",
+                "weight": 30
+            },
+            {
+                "name": "值得",
+                "weight": 29
+            },
+            {
+                "name": "品牌",
+                "weight": 29
+            },
+            {
+                "name": "产品",
+                "weight": 27
+            },
+            {
+                "name": "应该",
+                "weight": 27
+            },
+            {
+                "name": "面巾",
+                "weight": 25
+            },
+            {
+                "name": "开始",
+                "weight": 24
+            },
+            {
+                "name": "代言",
+                "weight": 23
+            },
+            {
+                "name": "放心",
+                "weight": 23
+            },
+            {
+                "name": "实体店",
+                "weight": 22
+            },
+            {
+                "name": "买来",
+                "weight": 21
+            },
+            {
+                "name": "洗完",
+                "weight": 21
+            },
+            {
+                "name": "半价",
+                "weight": 20
+            },
+            {
+                "name": "看到",
+                "weight": 19
+            },
+            {
+                "name": "信赖",
+                "weight": 18
+            },
+            {
+                "name": "同事",
+                "weight": 18
+            },
+            {
+                "name": "大家",
+                "weight": 18
+            },
+            {
+                "name": "打折",
+                "weight": 18
+            },
+            {
+                "name": "盒子",
+                "weight": 18
+            },
+            {
+                "name": "还有",
+                "weight": 18
+            },
+            {
+                "name": "失望",
+                "weight": 17
+            },
+            {
+                "name": "盒装",
+                "weight": 17
+            },
+            {
+                "name": "继续",
+                "weight": 17
+            },
+            {
+                "name": "无限",
+                "weight": 16
+            },
+            {
+                "name": "速度",
+                "weight": 16
+            },
+            {
+                "name": "力度",
+                "weight": 15
+            },
+            {
+                "name": "支持",
+                "weight": 15
+            },
+            {
+                "name": "相信",
+                "weight": 15
+            },
+            {
+                "name": "细菌",
+                "weight": 15
+            },
+            {
+                "name": "赠品",
+                "weight": 15
+            },
+            {
+                "name": "习惯",
+                "weight": 14
+            },
+            {
+                "name": "发现",
+                "weight": 14
+            },
+            {
+                "name": "吸水",
+                "weight": 14
+            },
+            {
+                "name": "吸水性",
+                "weight": 14
+            },
+            {
+                "name": "异味",
+                "weight": 14
+            },
+            {
+                "name": "效果",
+                "weight": 14
+            },
+            {
+                "name": "表白",
+                "weight": 14
+            },
+            {
+                "name": "评价",
+                "weight": 14
+            },
+            {
+                "name": "厚度",
+                "weight": 13
+            },
+            {
+                "name": "性价比",
+                "weight": 13
+            },
+            {
+                "name": "脸巾",
+                "weight": 13
+            },
+            {
+                "name": "问题",
+                "weight": 13
+            },
+            {
+                "name": "地方",
+                "weight": 12
+            },
+            {
+                "name": "海报",
+                "weight": 12
+            },
+            {
+                "name": "纸张",
+                "weight": 12
+            },
+            {
+                "name": "结果",
+                "weight": 12
+            },
+            {
+                "name": "不用",
+                "weight": 11
+            },
+            {
+                "name": "不能",
+                "weight": 11
+            },
+            {
+                "name": "味道",
+                "weight": 11
+            },
+            {
+                "name": "品质",
+                "weight": 11
+            },
+            {
+                "name": "够用",
+                "weight": 11
+            },
+            {
+                "name": "安利",
+                "weight": 11
+            },
+            {
+                "name": "开心",
+                "weight": 11
+            },
+            {
+                "name": "态度",
+                "weight": 11
+            },
+            {
+                "name": "想象",
+                "weight": 11
+            }
+        ]
+    },
+    "code": 0,
+    "msg": "数据请求成功"
+}

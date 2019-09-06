@@ -47,24 +47,7 @@ const digitalRouter = [
             }
         ]
 
-    }, {
-        path: '/user',
-        component: Layout,
-        meta: {
-            requireAuth: true,  // 需要登录才能访问
-        },
-        children: [
-            {
-                path: 'roles',
-                name: 'roles',
-                meta: {
-                    title: '用户角色'
-                },
-                component: () => import('../components/user/Roles')
-            }
-        ]
-
-    }, {
+    },{
         path: '/statistic',
         component: Layout,
         meta: {
@@ -75,17 +58,19 @@ const digitalRouter = [
                 path: 'keywords',
                 name: 'keywords',
                 meta: {
-                    title: '评论统计'
+                    title: '分词统计',
+                    active: '/statistic/goods'   // 进入该路由时需要激活的菜单路由
                 },
-                component: () => import('../components/statistic/Keywords')
+                component: () => import('../components/statistic/Keyword')
             },
             {
-                path: 'comments',
+                path: 'comments/:goodsId',
                 name: 'comments',
                 meta: {
-                    title: '评论统计'
+                    title: '评论详情',
+                    active: '/statistic/goods'   // 进入该路由时需要激活的菜单路由
                 },
-                component: () => import('../components/statistic/comments')
+                component: () => import('../components/statistic/Comment')
             },
             {
                 path: 'goods',

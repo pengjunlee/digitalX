@@ -1,48 +1,49 @@
 {
     "admin": {
+        "code": 0,
+        "msg": "登录成功。",
         "data": {
             "user": {
-                "name": "pengjunlee",
+                "name": "admin",
+                "nickName": "管理员",
                 "menus": [
                     {
-                        "path": "/home",
+                        "id": 1,
                         "title": "首页",
-                        "icon": "el-icon-s-home"
+                        "path": "/home",
+                        "icon": "el-icon-s-home",
+                        "children": []
                     },
                     {
-                        "path": "/statistic",
+                        "id": 2,
                         "title": "数据统计",
+                        "path": "/statistic",
                         "icon": "el-icon-s-tools",
                         "children": [
                             {
-                                "path": "/statistic/keywords",
-                                "title": "词频统计"
-                            },
-                            {
-                                "path": "/statistic/comments",
-                                "title": "评论详情"
-                            },
-                            {
+                                "id": 3,
+                                "title": "商品列表",
                                 "path": "/statistic/goods",
-                                "title": "商品列表"
+                                "icon": "",
+                                "children": null
                             }
                         ]
                     }
                 ]
             }
-        },
-        "code": 0,
-        "msg": "登录成功"
+        }
     },
     "user": {
         "data": {
             "user": {
                 "name": "user9527",
+                "nickName": "李白",
                 "menus": [
                     {
                         "path": "/home",
                         "title": "首页",
-                        "icon": "el-icon-s-home"
+                        "icon": "el-icon-s-home",
+                        "children": []
                     }
                 ]
             }
@@ -53,7 +54,6 @@
     "other": {
         "data": {
             "user": {
-                "name": "游客"
             }
         },
         "code": -1,

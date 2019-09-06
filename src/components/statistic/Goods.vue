@@ -15,7 +15,7 @@
         <!-- action插槽 -->
         <template v-slot:action>
           <div style="vertical-align: middle;height: 40px;line-height: 40px;">
-            <router-link to="/statistic/comments">
+            <router-link :to="{ name: 'comments', params: { goodsId: goods.goodsNum}}">
               <div class="btn-fl el-button el-button--success el-button--small">
                 <span>
                   <i id="collapsedIcon" class="el-icon-s-grid"></i>
@@ -60,14 +60,14 @@ export default {
   created() {
     // 发送登录请求，返回json格式响应数据
     this.jsonAxios
-      .get("/api/rate/goods")
+      .get("/api/v1/comment/goods/list")
       .then(res => {
-        var retData = res.data;
-        if (retData.code === 0) {
-          this.paginator.total = retData.data.goods.length;
-          this.goodsList = retData.data.goods;
+        if (res.code === 0) {
+          this.paginator.total = res.data.goods.length;
+          this.goodsList = res.data.goods;
+          console.log(this.goodsList);
         } else {
-          console.log(retData.msg);
+          console.log(res.msg);
         }
       })
       .catch(error => {

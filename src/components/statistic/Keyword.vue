@@ -13,12 +13,13 @@ export default {
   created() {
     // 发送登录请求，返回json格式响应数据
     this.jsonAxios
-      .post("/api/statistic", { name: "keywords" })
+    // 请求模拟数据
+      .get("/api/v1/comment/keyword")
+      // 请求真实数据
+      // .get("/api/v1/comment/keyword/"+this.$route.params.goodsId)
       .then(res => {
-        var retData = res.data;
-        if (retData.code === 0) {
-          console.log(retData.data.keywords);
-          this.keyword_list = retData.data.keywords;
+        if (res.code === 0) {
+          this.keyword_list = res.data.keywords;
           var Highcharts = require("highcharts");
 
           // 在 Highcharts 加载之后加载功能模块
@@ -30,7 +31,7 @@ export default {
             series: [
               {
                 type: "wordcloud",
-                data: retData.data.keywords
+                data: res.data.keywords
               }
             ],
             title: {
@@ -38,7 +39,7 @@ export default {
             }
           });
         } else {
-          console.log(retData.msg);
+          console.log(res.msg);
         }
       })
       .catch(error => {

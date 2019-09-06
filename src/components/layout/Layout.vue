@@ -11,10 +11,15 @@
           router
           unique-opened
           :collapse="status.isCollapsed"
-          :default-active="$route.path"
+          :default-active="defaultActive"
         >
           <template v-for="(menu, index) in menuList">
-            <el-menu-item class="menu-item" v-if="menu.children.length === 0" :index="menu.path" :key="index">
+            <el-menu-item
+              class="menu-item"
+              v-if="menu.children.length === 0"
+              :index="menu.path"
+              :key="index"
+            >
               <i :class="menu.icon" style="font-size:24px;"></i>
               <span slot="title">{{menu.title}}</span>
             </el-menu-item>
@@ -70,10 +75,17 @@ export default {
     };
   },
   computed: {
-    menuList(){
+    menuList() {
       console.log("获取菜单列表");
       console.log(this.$store.getters.getMenus);
-    return this.$store.getters.getMenus;
+      console.log(this.$store.getters.getCurUser);
+      return this.$store.getters.getMenus;
+    },
+    // 获取当前路由渲染页面菜单
+    defaultActive() {
+      return this.$route.meta["active"]
+        ? this.$route.meta["active"]
+        : this.$route.path;
     }
   },
   methods: {

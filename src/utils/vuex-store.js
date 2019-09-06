@@ -10,7 +10,7 @@ const store = new Vuex.Store({
     },
     getters: {
         getCurUser: function (state) {
-            return state.user.name;
+            return state.user.nickName ? state.user.nickName : state.user.name;
         },
         getMenus: function (state) {
             return state.user.menus;
