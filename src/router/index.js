@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '../utils/vuex-store'
 import { Loading } from 'element-ui';
 import { routers } from '@/utils/routers';
 

@@ -44,7 +44,14 @@ export default {
               // 将用户数据保存到vuex
               console.log(res.data);
               this.$store.dispatch("updateUserAction", res.data.user);
-              this.$router.push("/home");
+
+              // 如果登录后需要重定向页面
+              if (this.$route.query.redirect) {
+                let redirect_path = this.$route.query.redirect;
+                this.$router.push({ path: redirect_path });
+              } else {
+                this.$router.push("/home");
+              }
             } else {
               $error.text(res.msg);
             }

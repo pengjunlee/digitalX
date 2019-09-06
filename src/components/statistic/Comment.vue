@@ -62,14 +62,14 @@ export default {
   created() {
     // 发送登录请求，返回json格式响应数据
     this.jsonAxios
-    // 请求模拟数据
-      .get("/api/v1/comment/list")
+      // 请求模拟数据
+      // .get("/api/v1/comment/list")
       // 请求真实数据
-      // .get("/api/v1/comment/list/"+this.$route.params.goodsId)
+      .get("/api/v1/comment/list/" + this.$route.params.goodsId)
       .then(res => {
         if (res.code === 0) {
-          this.paginator.total = res.data.rates.length;
-          this.comment_list = res.data.rates;
+          this.paginator.total = res.data.comments.length;
+          this.comment_list = res.data.comments;
         } else {
           console.log(res.msg);
         }

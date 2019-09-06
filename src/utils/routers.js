@@ -41,7 +41,8 @@ const digitalRouter = [
                 path: 'home',
                 name: 'home',
                 meta: {
-                    title: '首页'
+                    title: '首页',
+                    requireAuth: true  // 需要登录才能访问
                 },
                 component: () => import('../components/home/Home')
             }

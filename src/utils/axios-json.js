@@ -10,7 +10,7 @@ import store from './vuex-store'
 // 请求json 格式数据的 axios 配置
 const jsonAxios = Axios.create({
   // 请求模拟数据
-  baseURL: '/mock',
+  // baseURL: '/mock',
   timeout: 5000,
   headers: {
     'Content-Type': 'application/json;charset=UTF-8'
