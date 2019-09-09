@@ -42,7 +42,8 @@ router.beforeEach((to, form, next) => {
     next();
   }
 
-  if (!to.matched.length) {
+  if (to.matched.length === 0) {
+    loading.close();
     next({
       path: '/error/404',
       replace: true
