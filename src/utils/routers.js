@@ -33,14 +33,12 @@ const digitalRouter = [
     {
         path: '/',
         component: Layout,
-        meta: {
-            requireAuth: true,  // 需要登录才能访问
-        },
         children: [
             {
                 path: 'home',
                 name: 'home',
                 meta: {
+                    requireAuth: true,  // 需要登录才能访问
                     title: '首页'
                 },
                 component: () => import('../components/home/Home')
