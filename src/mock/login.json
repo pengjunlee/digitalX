@@ -25,7 +25,7 @@
                                 "title": "商品列表",
                                 "path": "/statistic/goods",
                                 "icon": "",
-                                "children": null
+                                "children": []
                             }
                         ]
                     }
@@ -53,8 +53,7 @@
     },
     "other": {
         "data": {
-            "user": {
-            }
+            "user": {}
         },
         "code": -1,
         "msg": "登录失败"

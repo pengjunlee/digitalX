@@ -13,7 +13,7 @@ export default {
   created() {
     // 发送登录请求，返回json格式响应数据
     this.jsonAxios
-    // 请求模拟数据
+      // 请求模拟数据
       .get("/api/v1/comment/keyword")
       // 请求真实数据
       // .get("/api/v1/comment/keyword/"+this.$route.params.goodsId)

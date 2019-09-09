@@ -10,7 +10,7 @@ import store from './vuex-store'
 // 请求json 格式数据的 axios 配置
 const jsonAxios = Axios.create({
   // 请求模拟数据
-  // baseURL: '/mock',
+  baseURL: '/mock',
   timeout: 5000,
   headers: {
     'Content-Type': 'application/json;charset=UTF-8'
@@ -59,13 +59,13 @@ jsonAxios.interceptors.request.use(function (config) {
   return Promise.reject(error);
 });
 
-var tokenIndex = 1;
-
 // 添加响应拦截器
 jsonAxios.interceptors.response.use(function (response) {
   loadingInstance.close();
   console.log("response interceptors... ");
   if (response.status === 200) {
+    // 模拟请求头添加x-authorization-with
+    response.headers['x-authorization-with'] = "pengjunlee";
     console.log(response.headers['x-authorization-with']);
     // 将响应带回来的新token 保存起来
     store.dispatch("updateTokenAction", response.headers['x-authorization-with']);

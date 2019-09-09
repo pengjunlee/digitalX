@@ -4,7 +4,7 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
-    state: {
+    state: sessionStorage.getItem('store') ? JSON.parse(sessionStorage.getItem('store')) : {
         user: {},
         token: ""
     },
@@ -23,9 +23,11 @@ const store = new Vuex.Store({
     mutations: {
         updatestateUser(state, newUser) {
             state.user = newUser;
+
         },
         updatestateToken(state, newToken) {
             state.token = newToken;
+            console.log("mutations: " + store.state.token);
         }
     },
     actions: {

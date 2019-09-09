@@ -78,7 +78,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
             res.send(loginData['other']);
             break;
         }
-
       });
 
       app.get("/mock/api/v1/comment/goods/list", (req, res) => {
@@ -93,32 +92,32 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         res.send(keywordData);
 
       });
-      
+
     }
 
   },
-plugins: [
-  new webpack.DefinePlugin({
-    'process.env': require('../config/dev.env')
-  }),
-  new webpack.HotModuleReplacementPlugin(),
-  new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
-  new webpack.NoEmitOnErrorsPlugin(),
-  // https://github.com/ampedandwired/html-webpack-plugin
-  new HtmlWebpackPlugin({
-    filename: 'index.html',
-    template: 'index.html',
-    inject: true
-  }),
-  // copy custom static assets
-  new CopyWebpackPlugin([
-    {
-      from: path.resolve(__dirname, '../static'),
-      to: config.dev.assetsSubDirectory,
-      ignore: ['.*']
-    }
-  ])
-]
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': require('../config/dev.env')
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
+    new webpack.NoEmitOnErrorsPlugin(),
+    // https://github.com/ampedandwired/html-webpack-plugin
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.html',
+      inject: true
+    }),
+    // copy custom static assets
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../static'),
+        to: config.dev.assetsSubDirectory,
+        ignore: ['.*']
+      }
+    ])
+  ]
 })
 
 module.exports = new Promise((resolve, reject) => {

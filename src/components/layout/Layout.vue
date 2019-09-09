@@ -13,10 +13,10 @@
           :collapse="status.isCollapsed"
           :default-active="defaultActive"
         >
-          <template v-for="(menu, index) in menuList">
+          <template v-for="(menu, index) in menu_list">
             <el-menu-item
               class="menu-item"
-              v-if="menu.children.length === 0"
+              v-if="menu.children.length===0"
               :index="menu.path"
               :key="index"
             >
@@ -43,7 +43,7 @@
     </div>
 
     <div class="topbar-container" :style="{left: this.status.isCollapsed?'64px':'200px'}">
-      <div class="el-button el-button--default el-button--small" @click="collapsed">
+      <div class="el-button el-button--info el-button--small" @click="collapsed">
         <i id="collapsedIcon" :class="this.status.isCollapsed?'el-icon-s-unfold':'el-icon-s-fold'"></i>
       </div>
       <div class="btn-fl el-button el-button--danger el-button--small" @click="logout">
@@ -74,13 +74,10 @@ export default {
       }
     };
   },
+  created() {
+    this.menu_list = this.$store.getters.getMenus;
+  },
   computed: {
-    menuList() {
-      console.log("获取菜单列表");
-      console.log(this.$store.getters.getMenus);
-      console.log(this.$store.getters.getCurUser);
-      return this.$store.getters.getMenus;
-    },
     // 获取当前路由渲染页面菜单
     defaultActive() {
       return this.$route.meta["active"]
@@ -121,7 +118,6 @@ export default {
   bottom: 0;
   left: 0;
   z-index: 99;
-  min-width: 200px;
   background-color: #f6f6f6;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 2px 4px 0 rgba(96, 125, 139, 0.9),
@@ -139,7 +135,6 @@ export default {
   height: 48px;
   line-height: 48px;
   padding: 0 10px;
-  min-width: 200px;
   background-color: #f6f6f6;
   box-shadow: 0 2px 4px 0 rgba(96, 125, 139, 0.9),
     0 0 6px 0 rgba(96, 125, 139, 0.4);

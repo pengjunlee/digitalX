@@ -8661,7 +8661,7 @@
     .el-menu--collapse > .el-menu-item.is-active i {
       color: inherit; }
     .el-menu--collapse .el-menu .el-submenu {
-      min-width: 200px; }
+      min-width: 130px; }
     .el-menu--collapse .el-submenu {
       position: relative; }
       .el-menu--collapse .el-submenu .el-menu {
@@ -8679,7 +8679,7 @@
         transform: none; }
   .el-menu--popup {
     z-index: 100;
-    min-width: 200px;
+    min-width: 130px;
     border: none;
     padding: 5px 0;
     border-radius: 2px;

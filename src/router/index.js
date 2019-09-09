@@ -15,7 +15,7 @@ const routerConfig = {
 const router = new Router(routerConfig);
 
 let loading;
-router.beforeEach((to, form, next) => {
+router.beforeEach((to, from, next) => {
   loading = Loading.service({
     // fullscreen: true,
     target: '.content-container',
@@ -25,7 +25,8 @@ router.beforeEach((to, form, next) => {
   // 设置window.document.title 的名称
   let title = to.meta.title || '情报中心';
   window.document.title = title;
-
+  
+  console.log(store.state);
   // 判断该路由是否需要先登录
   if (to.meta.requireAuth) {
     if (store.state.token) {  // 通过vuex 获取当前的token是否存在
@@ -42,7 +43,8 @@ router.beforeEach((to, form, next) => {
     next();
   }
 
-  if (!to.matched.length) {
+  if (to.matched.length === 0) {
+    loading.close();
     next({
       path: '/error/404',
       replace: true
