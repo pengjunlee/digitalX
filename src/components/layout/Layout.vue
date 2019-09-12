@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <div class="left-container" :style="{width: status.isCollapsed?'64px':'200px'}">
+    <div class="left-container" :style="{width: status.isCollapsed?'65px':'200px'}">
       <div class="logo-wrapper">
         <img style="width:50px;height:50px;" src="./DigitalX1.png" />
       </div>
@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <div class="topbar-container" :style="{left: this.status.isCollapsed?'64px':'200px'}">
+    <div class="topbar-container" :style="{left: this.status.isCollapsed?'66px':'201px'}">
       <div class="el-button el-button--info el-button--small" @click="collapsed">
         <i id="collapsedIcon" :class="this.status.isCollapsed?'el-icon-s-unfold':'el-icon-s-fold'"></i>
       </div>
@@ -57,7 +57,7 @@
       </div>
     </div>
 
-    <div class="content-container" :style="{left: this.status.isCollapsed?'64px':'200px'}">
+    <div class="content-container" :style="{left: this.status.isCollapsed?'66px':'201px'}">
       <div class="content" style="height: 100%;">
         <router-view></router-view>
       </div>

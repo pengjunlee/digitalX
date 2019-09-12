@@ -1,10 +1,7 @@
 <template>
   <div class="vue-hover-mask">
     <slot></slot>
-    <span
-      @click="handleClick"
-      class="vue-hover-mask_action"
-    >
+    <span @click="handleClick" class="vue-hover-mask_action">
       <slot name="action"></slot>
     </span>
   </div>
@@ -12,13 +9,13 @@
 
 <script>
 export default {
-  name: 'VueHoverMask',
+  name: "VueHoverMask",
   methods: {
-    handleClick () {
-      this.$emit('click')
+    handleClick() {
+      this.$emit("click");
     }
   }
-}
+};
 </script>
 
 <style>

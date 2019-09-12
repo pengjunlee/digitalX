@@ -71,7 +71,7 @@ export default {
     hasChildren: function() {
       return this.menu.children && this.menu.children.length > 0;
     },
-    currentPath:function() {
+    currentPath: function() {
       return this.$router.currentRoute.path;
     }
   },
@@ -90,21 +90,21 @@ export default {
       } else {
         $(".menu-item").removeClass("current-menu");
         $this.addClass("current-menu");
-        console.log("进入菜单:"+this.menu.path);
-        this.$router.push({path: this.menu.path});
+        console.log("进入菜单:" + this.menu.path);
+        this.$router.push({ path: this.menu.path });
       }
     },
     subMenuClick: function(event) {
       var $this = $(event.currentTarget);
       $(".menu-item").removeClass("current-menu");
       $this.addClass("current-menu");
-      console.log("进入菜单:"+$this.attr('path'));
-      this.$router.push({path: $this.attr('path')});
+      console.log("进入菜单:" + $this.attr("path"));
+      this.$router.push({ path: $this.attr("path") });
     },
     tipMenuClick: function(event) {
       var $this = $(event.currentTarget);
-      console.log("进入菜单:"+$this.attr('path'));
-      this.$router.push({path: $this.attr('path')});
+      console.log("进入菜单:" + $this.attr("path"));
+      this.$router.push({ path: $this.attr("path") });
     }
   }
 };

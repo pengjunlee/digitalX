@@ -45,12 +45,12 @@ const digitalRouter = [
             }
         ]
 
-    },{
+    }, {
         path: '/statistic',
         component: Layout,
         children: [
             {
-                path: 'keywords',
+                path: 'keywords/:goodsId',
                 name: 'keywords',
                 meta: {
                     title: '分词统计',

@@ -23,7 +23,7 @@
                 </span>
               </div>
             </router-link>
-            <router-link to="/statistic/keywords">
+            <router-link :to="{ name: 'keywords', params: { goodsId: goods.goodsNum}}">
               <div class="btn-fl el-button el-button--success el-button--small">
                 <span>
                   <i id="collapsedIcon" class="el-icon-s-grid"></i>

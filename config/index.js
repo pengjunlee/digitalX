@@ -18,7 +18,7 @@ module.exports = {
     // 请求接口数据
     proxyTable: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: 'http://172.16.80.47:8080',
         changeOrigin: true,
         pathRewrite: {
           // /api将代表target/api
@@ -48,18 +48,18 @@ module.exports = {
 
   build: {
     // Template for index.html
-    index: path.resolve(__dirname, '../dist/index.html'),
+    index: path.resolve(__dirname, '../dist/digitalx/index.html'),
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    assetsRoot: path.resolve(__dirname, '../dist/digitalx'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: '/digitalx/',
 
     /**
      * Source Maps
      */
 
-    productionSourceMap: true,
+    productionSourceMap: false,
     // https://webpack.js.org/configuration/devtool/#production
     devtool: '#source-map',
 

@@ -7,10 +7,15 @@ import {
 import router from '../router'
 import store from './vuex-store'
 
+// 配置API请求地址
+const root = process.env.ROOT_API;
+
 // 请求json 格式数据的 axios 配置
 const jsonAxios = Axios.create({
   // 请求模拟数据
   baseURL: '/mock',
+  // 根据不同环境请求不同API接口
+  // baseURL: root,
   timeout: 5000,
   headers: {
     'Content-Type': 'application/json;charset=UTF-8'
@@ -40,6 +45,7 @@ jsonAxios.interceptors.request.use(function (config) {
 
   // 请求时将本地保存的token带上，也有可能token已经过期
   if (store.getters.getToken) {
+    console.log(store.getters.getToken);
     config.headers['x-authorization-with'] = store.getters.getToken;
   }
 
@@ -69,10 +75,11 @@ jsonAxios.interceptors.response.use(function (response) {
     console.log(response.headers['x-authorization-with']);
     // 将响应带回来的新token 保存起来
     store.dispatch("updateTokenAction", response.headers['x-authorization-with']);
+    console.log(store.getters.getToken);
 
     return Promise.resolve(response.data);
   } else {
-    return Promise.reject(response.data);
+    return Promise.reject(response);
   }
 }, function (error) {
   loadingInstance.close();

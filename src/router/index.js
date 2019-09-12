@@ -8,6 +8,7 @@ Vue.use(Router)
 
 const routerConfig = {
   mode: 'history',
+  base: '/digitalx',
   linkActiveClass: 'active',
   routes: routers
 };
@@ -25,7 +26,7 @@ router.beforeEach((to, from, next) => {
   // 设置window.document.title 的名称
   let title = to.meta.title || '情报中心';
   window.document.title = title;
-  
+
   console.log(store.state);
   // 判断该路由是否需要先登录
   if (to.meta.requireAuth) {
