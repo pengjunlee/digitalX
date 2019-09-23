@@ -26,6 +26,17 @@ export default {
           require("highcharts/modules/exporting")(Highcharts);
           require("highcharts/modules/wordcloud")(Highcharts);
           require("highcharts/modules/oldie")(Highcharts);
+          require("highcharts/themes/sand-signika")(Highcharts);
+          // require("highcharts/themes/skies")(Highcharts);
+          // require("highcharts/themes/dark-blue")(Highcharts);
+          // require("highcharts/themes/sunset")(Highcharts);
+          // require("highcharts/themes/grid-light")(Highcharts);
+          // require("highcharts/themes/grid")(Highcharts);
+          // require("highcharts/themes/gray")(Highcharts);
+          // require("highcharts/themes/dark-unica")(Highcharts);
+          // require("highcharts/themes/dark-green")(Highcharts);
+          // require("highcharts/themes/avocado")(Highcharts);
+          
           // 创建图表
           Highcharts.chart("words-container", {
             series: [

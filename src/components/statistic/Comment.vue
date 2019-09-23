@@ -1,7 +1,7 @@
 <template>
   <div class="comments">
     <table>
-      <tr v-for="(comment,index) in commentsPage" :key="index">
+      <tr v-for="(comment,index) in pageComments" :key="index">
         <td style="width:100%;min-width:300px;border-bottom: 1px solid gray;">
           <div class="first-comment">
             <div>
@@ -43,9 +43,9 @@
       <el-pagination
         style="float:right;"
         @current-change="pageChange"
-        :current-page="this.paginator.page"
+        :current-page="this.paginator.currentPage"
         background
-        layout="total, prev, pager, next"
+        layout="total, prev, pager, next, jumper"
         :total="this.paginator.total"
       ></el-pagination>
     </div>
@@ -56,44 +56,53 @@ export default {
   data() {
     return {
       comment_list: [],
-      paginator: { page: 1, total: 0 }
+      paginator: { currentPage: 1, hundredPage: 1, tenthIndex: 1, total: 0 }
     };
   },
-  created() {
-    // 发送登录请求，返回json格式响应数据
-    this.jsonAxios
-      // 请求模拟数据
-      .get("/api/v1/comment/list")
-      // 请求真实数据
-      // .get("/api/v1/comment/list/" + this.$route.params.goodsId)
-      .then(res => {
-        if (res.code === 0) {
-          this.paginator.total = res.data.comments.length;
-          this.comment_list = res.data.comments;
-        } else {
-          console.log(res.msg);
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
+  mounted() {
+    this.getCommentList(this.paginator.hundredPage);
   },
   computed: {
-    commentsPage: function() {
+    pageComments: function() {
       return this.comment_list.slice(
-        10 * this.paginator.page - 10,
-        10 * this.paginator.page
+        10 * (this.paginator.tenthIndex - 1),
+        10 * this.paginator.tenthIndex
       );
     }
   },
   methods: {
     pageChange: function(page) {
-      this.paginator.page = page;
+      let new_page = Math.ceil(page / 10);
+      if (new_page !== this.paginator.hundredPage) {
+        this.paginator.hundredPage = new_page;
+        this.getCommentList(this.paginator.hundredPage);
+      }
+      this.paginator.tenthIndex = page % 10 === 0 ? 10 : page % 10;
+      this.paginator.currentPage = page;
+    },
+    getCommentList: function(page) {
+      // 发送请求，为了减少请求次数，每次从后台获取100条数据
+      this.jsonAxios
+        // 请求模拟数据
+        .get("/api/v1/comment/list")
+        // 请求真实数据
+        // .get("/api/v1/comment/list/" + this.$route.params.goodsId + "?page=" + page)
+        .then(res => {
+          console.log(res);
+          if (res.code === 0) {
+            this.paginator.total = res.data.total;
+            this.comment_list = res.data.rows;
+          } else {
+            console.log(res.msg);
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   }
 };
 </script>
-
 
 <style scoped>
 .comments {

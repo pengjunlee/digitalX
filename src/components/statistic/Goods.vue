@@ -1,7 +1,7 @@
 <template>
   <div class="goods">
     <div class="flex-box">
-      <vue-hover-mask v-for="(goods,index) in goodsPage" :key="index">
+      <vue-hover-mask v-for="(goods,index) in pageGoods" :key="index">
         <!-- 默认插槽 -->
         <div class="flex-item goods-box">
           <img style=" width: 100%;height: 100%;" :src="goods.imgUrl" crossorigin="anonymous" />
@@ -41,7 +41,7 @@
         @current-change="pageChange"
         :current-page="this.paginator.page"
         background
-        layout="total ,prev, pager, next"
+        layout="total ,prev, pager, next, jumper"
         :total="this.paginator.total"
       ></el-pagination>
     </div>
@@ -54,31 +54,17 @@ export default {
   data() {
     return {
       goodsList: [],
-      paginator: { page: 1, total: 0 }
+      paginator: { currentPage: 1, hundredPage: 1, tenthIndex: 1, total: 0 }
     };
   },
   created() {
-    // 发送登录请求，返回json格式响应数据
-    this.jsonAxios
-      .get("/api/v1/comment/goods/list")
-      .then(res => {
-        if (res.code === 0) {
-          this.paginator.total = res.data.goods.length;
-          this.goodsList = res.data.goods;
-          console.log(this.goodsList);
-        } else {
-          console.log(res.msg);
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    this.getGoodsList(this.paginator.hundredPage);
   },
   computed: {
-    goodsPage: function() {
+    pageGoods: function() {
       return this.goodsList.slice(
-        10 * this.paginator.page - 10,
-        10 * this.paginator.page
+        10 * (this.paginator.tenthIndex - 1),
+        10 * this.paginator.tenthIndex
       );
     }
   },
@@ -87,7 +73,30 @@ export default {
   },
   methods: {
     pageChange: function(page) {
-      this.paginator.page = page;
+      let new_page = Math.ceil(page / 10);
+      if (new_page !== this.paginator.hundredPage) {
+        this.paginator.hundredPage = new_page;
+        this.getCommentList(this.paginator.hundredPage);
+      }
+      this.paginator.tenthIndex = page % 10 === 0 ? 10 : page % 10;
+      this.paginator.currentPage = page;
+    },
+    getGoodsList: function(page) {
+      // 发送请求，为了减少请求次数，每次获取数据条数=this.paginator.size
+      this.jsonAxios
+        .get("/api/v1/comment/goods/list" + "?page=" + page)
+        .then(res => {
+          if (res.code === 0) {
+            this.paginator.total = res.data.total;
+            this.goodsList = res.data.rows;
+            console.log(res.data.total);
+          } else {
+            console.log(res.msg);
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   }
 };

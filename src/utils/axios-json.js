@@ -72,7 +72,7 @@ jsonAxios.interceptors.response.use(function (response) {
   if (response.status === 200) {
     // 模拟请求头添加x-authorization-with
     response.headers['x-authorization-with'] = "pengjunlee";
-    console.log(response.headers['x-authorization-with']);
+    // console.log(response.headers['x-authorization-with']);
     // 将响应带回来的新token 保存起来
     store.dispatch("updateTokenAction", response.headers['x-authorization-with']);
     console.log(store.getters.getToken);
@@ -104,7 +104,6 @@ jsonAxios.interceptors.response.use(function (response) {
           }
         });
         break;
-
       // 403 
       case 403:
         console.log("error: " + 403);
