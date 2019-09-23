@@ -86,7 +86,7 @@ export default {
         // 请求模拟数据
         .get("/api/v1/comment/list")
         // 请求真实数据
-        // .get("/api/v1/comment/list/" + this.$route.params.goodsId + "?page=" + page)
+        // .get("/api/v1/comment/" + this.$route.params.goodsId + "?page=" + page)
         .then(res => {
           console.log(res);
           if (res.code === 0) {

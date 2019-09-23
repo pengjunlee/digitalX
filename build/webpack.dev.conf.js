@@ -29,7 +29,7 @@ var jsonParser = bodyParser.json();
 var loginData = require("../src/mock/login.json");
 var goodsData = require("../src/mock/goods.json");
 var commentData = require("../src/mock/comment.json")
-var keywordData = require("../src/mock/keyword.json")
+var ratewordData = require("../src/mock/rateword.json")
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
@@ -80,7 +80,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         }
       });
 
-      app.get("/mock/api/v1/comment/goods/list", (req, res) => {
+      app.get("/mock/api/v1/comment/goods", (req, res) => {
         res.send(goodsData);
 
       });
@@ -88,8 +88,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         res.send(commentData);
 
       });
-      app.get("/mock/api/v1/comment/keyword", (req, res) => {
-        res.send(keywordData);
+      app.get("/mock/api/v1/comment/rateword", (req, res) => {
+        res.send(ratewordData);
 
       });
 

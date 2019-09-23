@@ -50,14 +50,14 @@ const digitalRouter = [
         component: Layout,
         children: [
             {
-                path: 'keywords/:goodsId',
-                name: 'keywords',
+                path: 'ratewords/:goodsId',
+                name: 'ratewords',
                 meta: {
                     title: '分词统计',
                     requireAuth: true,  // 需要登录才能访问
                     active: '/statistic/goods'   // 进入该路由时需要激活的菜单路由
                 },
-                component: () => import('../components/statistic/Keyword')
+                component: () => import('../components/statistic/Rateword')
             },
             {
                 path: 'comments/:goodsId',

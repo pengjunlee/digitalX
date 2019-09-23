@@ -23,7 +23,7 @@
                 </span>
               </div>
             </router-link>
-            <router-link :to="{ name: 'keywords', params: { goodsId: goods.goodsNum}}">
+            <router-link :to="{ name: 'ratewords', params: { goodsId: goods.goodsNum}}">
               <div class="btn-fl el-button el-button--success el-button--small">
                 <span>
                   <i id="collapsedIcon" class="el-icon-s-grid"></i>
@@ -84,7 +84,7 @@ export default {
     getGoodsList: function(page) {
       // 发送请求，为了减少请求次数，每次获取数据条数=this.paginator.size
       this.jsonAxios
-        .get("/api/v1/comment/goods/list" + "?page=" + page)
+        .get("/api/v1/comment/goods" + "?page=" + page)
         .then(res => {
           if (res.code === 0) {
             this.paginator.total = res.data.total;
